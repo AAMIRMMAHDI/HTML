@@ -37,7 +37,6 @@
             padding: 0 15px;
         }
 
-        /* دکمه‌ها */
         .btn {
             display: inline-block;
             padding: 12px 25px;
@@ -73,7 +72,6 @@
             box-shadow: 0 5px 15px rgba(29, 53, 87, 0.3);
         }
 
-        /* هدر */
         header {
             background-color: var(--light-text);
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
@@ -111,6 +109,10 @@
             color: var(--secondary-color);
         }
 
+        nav {
+            display: flex;
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -141,9 +143,9 @@
             font-size: 24px;
             cursor: pointer;
             color: var(--secondary-color);
+            z-index: 1001;
         }
 
-        /* بخش هیرو */
         .hero {
             height: 100vh;
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
@@ -179,7 +181,6 @@
             animation: fadeIn 1.5s ease;
         }
 
-        /* بخش منو */
         .menu {
             padding: 100px 0;
             background-color: var(--light-color);
@@ -211,6 +212,34 @@
         .section-header p {
             color: #666;
             font-size: 18px;
+        }
+
+        .search-bar {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .search-bar input {
+            padding: 12px 20px;
+            width: 100%;
+            max-width: 400px;
+            border: 1px solid var(--primary-color);
+            border-radius: 30px;
+            font-size: 16px;
+            outline: none;
+            transition: var(--transition);
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-bar input:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .search-bar input::placeholder {
+            color: #999;
+            font-family: 'Yekan', 'Vazir', 'Tanha', sans-serif;
         }
 
         .category-tabs {
@@ -295,56 +324,31 @@
             font-size: 18px;
         }
 
-        /* درباره ما - نسخه جدید */
         .about {
             padding: 100px 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .about-bg {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80') no-repeat center center/cover;
-            z-index: 0;
-            opacity: 0.2;
+            background-color: white;
         }
 
         .about-content {
-            position: relative;
-            z-index: 1;
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
         }
 
         .about-text h2 {
             font-size: 36px;
             color: var(--secondary-color);
             margin-bottom: 20px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .about-text h2::after {
-            content: '';
-            position: absolute;
-            width: 50%;
-            height: 3px;
-            background-color: var(--primary-color);
-            bottom: -10px;
-            left: 25%;
         }
 
         .about-text p {
             margin-bottom: 20px;
             font-size: 16px;
             line-height: 1.8;
-            color: #444;
         }
 
         .features-list {
@@ -356,8 +360,6 @@
             margin-bottom: 15px;
             position: relative;
             padding-right: 30px;
-            font-size: 16px;
-            color: #555;
         }
 
         .features-list li::before {
@@ -368,7 +370,19 @@
             font-weight: bold;
         }
 
-        /* گالری */
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
         .gallery {
             padding: 100px 0;
             background-color: var(--light-color);
@@ -422,50 +436,41 @@
             font-weight: bold;
         }
 
-        /* تماس و نقشه */
         .contact {
             padding: 100px 0;
             background-color: white;
         }
 
         .contact-content {
-            display: flex;
-            gap: 50px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
         }
 
         .contact-info {
-            flex: 1;
             background-color: var(--secondary-color);
             color: white;
-            padding: 40px;
+            padding: 30px;
             border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
         }
 
         .contact-info h2 {
             font-size: 28px;
-            margin-bottom: 30px;
-            position: relative;
-        }
-
-        .contact-info h2::after {
-            content: '';
-            position: absolute;
-            width: 50px;
-            height: 3px;
-            background-color: var(--primary-color);
-            bottom: -10px;
-            right: 0;
+            margin-bottom: 20px;
         }
 
         .info-item {
             display: flex;
-            align-items: flex-start;
-            margin-bottom: 25px;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            gap: 10px;
         }
 
         .info-item i {
             font-size: 20px;
-            margin-left: 15px;
             color: var(--primary-color);
         }
 
@@ -474,8 +479,7 @@
         }
 
         .map-container {
-            flex: 1;
-            height: 100%;
+            height: 400px;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
@@ -484,11 +488,9 @@
         .map-container iframe {
             width: 100%;
             height: 100%;
-            min-height: 400px;
             border: none;
         }
 
-        /* فوتر */
         footer {
             background-color: var(--secondary-color);
             color: white;
@@ -553,6 +555,7 @@
         .social-icons {
             display: flex;
             gap: 15px;
+            justify-content: center;
         }
 
         .social-icons a {
@@ -581,7 +584,6 @@
             font-size: 14px;
         }
 
-        /* انیمیشن‌ها */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -609,188 +611,143 @@
             }
         }
 
-        /* منوی موبایل مدرن */
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 80%;
-            max-width: 350px;
-            height: 100vh;
-            background-color: white;
-            z-index: 1001;
-            transition: var(--transition);
-            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-            padding: 20px;
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .mobile-menu.active {
-            right: 0;
-        }
-
-        .mobile-menu-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #eee;
-            margin-bottom: 20px;
-        }
-
-        .mobile-menu-logo img {
-            height: 40px;
-        }
-
-        .mobile-menu-close {
-            background: none;
-            border: none;
-            font-size: 24px;
-            color: var(--secondary-color);
-            cursor: pointer;
-        }
-
-        .mobile-menu-nav ul {
-            list-style: none;
-        }
-
-        .mobile-menu-nav ul li {
-            margin-bottom: 15px;
-        }
-
-        .mobile-menu-nav ul li a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-size: 18px;
-            font-weight: 600;
-            display: block;
-            padding: 10px;
-            border-radius: 8px;
-            transition: var(--transition);
-        }
-
-        .mobile-menu-nav ul li a:hover {
-            background-color: rgba(230, 57, 70, 0.1);
-            color: var(--primary-color);
-        }
-
-        .mobile-menu-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-        }
-
-        .mobile-menu-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        /* ریسپانسیو */
         @media (max-width: 992px) {
-            .about-content, 
-            .contact-content {
+            .about-content {
                 flex-direction: column;
+                gap: 30px;
             }
             
-            .map-container {
-                margin-top: 40px;
-                min-height: 300px;
+            .about-image {
+                margin-top: 20px;
             }
         }
 
         @media (max-width: 768px) {
-            nav.desktop-nav {
+            nav {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                transition: transform 0.3s ease, opacity 0.3s ease;
+                opacity: 0;
+                z-index: 999;
                 display: none;
             }
-            
+
+            nav.active {
+                display: flex;
+                transform: translateY(0);
+                opacity: 1;
+                animation: slideDown 0.3s ease forwards;
+            }
+
+            nav ul {
+                flex-direction: column;
+                padding: 20px;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
             .mobile-menu-btn {
                 display: block;
             }
-            
+
             .hero h2 {
                 font-size: 36px;
             }
-            
+
             .hero p {
                 font-size: 18px;
             }
-            
+
             .hero-buttons {
                 flex-direction: column;
                 gap: 15px;
+            }
+
+            .menu-items {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-content {
+                position: relative;
+                background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80') no-repeat center center/cover;
+                border-radius: 10px;
+                padding: 30px;
+                text-align: center;
+                color: var(--light-text);
+            }
+
+            .about-text {
+                flex: none;
+                max-width: 90%;
+            }
+
+            .about-text h2 {
+                color: var(--light-text);
+                font-size: 28px;
+            }
+
+            .about-text p {
+                font-size: 14px;
+            }
+
+            .features-list li {
+                color: var(--light-text);
+            }
+
+            .about-image {
+                display: none;
             }
 
             .contact-info, 
             .map-container {
                 width: 100%;
             }
-
-            /* منوی موبایل دو ستونه */
-            .menu-items {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            /* درباره ما در موبایل */
-            .about-content {
-                padding: 25px;
-            }
-
-            .about-text h2 {
-                font-size: 28px;
-            }
-
-            .about-text p {
-                font-size: 15px;
-            }
-
-            /* گالری در موبایل */
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
-            }
-
-            .gallery-item {
-                height: 180px;
-            }
         }
 
         @media (max-width: 576px) {
-            .hero h2 {
+            .section-header h2 {
                 font-size: 30px;
             }
 
-            /* منوی موبایل تک ستونه در صفحه‌های خیلی کوچک */
-            @media (max-width: 480px) {
-                .menu-items {
-                    grid-template-columns: 1fr;
-                }
-
-                .gallery-grid {
-                    grid-template-columns: 1fr;
-                }
+            .hero h2 {
+                font-size: 30px;
             }
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <!-- هدر -->
     <header id="header">
         <div class="container header-container">
             <div class="logo">
-                <img src="https://via.placeholder.com/50x50" alt="لوگوی رستوران">
                 <h1>رستوران باغ مهر</h1>
             </div>
             
-            <nav class="desktop-nav">
+            <nav id="nav">
                 <ul>
                     <li><a href="#home">صفحه اصلی</a></li>
                     <li><a href="#menu">منو غذاها</a></li>
@@ -801,36 +758,11 @@
             </nav>
             
             <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
+                <i class="fas fa-ellipsis-v"></i>
             </button>
         </div>
     </header>
 
-    <!-- منوی موبایل مدرن -->
-    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
-    
-    <div class="mobile-menu" id="mobileMenu">
-        <div class="mobile-menu-header">
-            <div class="mobile-menu-logo">
-                <img src="https://via.placeholder.com/50x50" alt="لوگوی رستوران">
-            </div>
-            <button class="mobile-menu-close" id="mobileMenuClose">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        
-        <nav class="mobile-menu-nav">
-            <ul>
-                <li><a href="#home">صفحه اصلی</a></li>
-                <li><a href="#menu">منو غذاها</a></li>
-                <li><a href="#about">درباره ما</a></li>
-                <li><a href="#gallery">گالری تصاویر</a></li>
-                <li><a href="#contact">تماس با ما</a></li>
-            </ul>
-        </nav>
-    </div>
-
-    <!-- بخش هیرو -->
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
@@ -843,7 +775,6 @@
         </div>
     </section>
 
-    <!-- بخش منو -->
     <section class="menu" id="menu">
         <div class="container">
             <div class="section-header">
@@ -852,6 +783,10 @@
             </div>
             
             <div class="menu-categories">
+                <div class="search-bar">
+                    <input type="text" id="menuSearch" placeholder="جست‌وجوی غذا...">
+                </div>
+                
                 <div class="category-tabs">
                     <button class="active" data-category="all">همه</button>
                     <button data-category="iranian">ایرانی</button>
@@ -862,7 +797,6 @@
                 </div>
                 
                 <div class="menu-items">
-                    <!-- غذاهای ایرانی -->
                     <div class="menu-item" data-category="iranian">
                         <div class="item-image">
                             <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="چلوکباب">
@@ -885,7 +819,6 @@
                         </div>
                     </div>
                     
-                    <!-- غذاهای بین‌المللی -->
                     <div class="menu-item" data-category="international">
                         <div class="item-image">
                             <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="استیک">
@@ -908,7 +841,6 @@
                         </div>
                     </div>
                     
-                    <!-- پیش غذاها -->
                     <div class="menu-item" data-category="appetizers">
                         <div class="item-image">
                             <img src="https://images.unsplash.com/photo-1601050690117-64b6d0a48139?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="سالاد">
@@ -931,7 +863,6 @@
                         </div>
                     </div>
                     
-                    <!-- دسرها -->
                     <div class="menu-item" data-category="desserts">
                         <div class="item-image">
                             <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="دسر">
@@ -954,7 +885,6 @@
                         </div>
                     </div>
                     
-                    <!-- نوشیدنی‌ها -->
                     <div class="menu-item" data-category="drinks">
                         <div class="item-image">
                             <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="نوشیدنی">
@@ -966,14 +896,22 @@
                         </div>
                     </div>
                     
+                    <div class="menu-item" data-category="drinks">
+                        <div class="item-image">
+                            <img src="https://images.unsplash.com/photo-1436076863939-06870fe779c2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="آبمیوه">
+                        </div>
+                        <div class="item-details">
+                            <h3>آبمیوه طبیعی</h3>
+                            <p>آبمیوه تازه فصل (پرتقال، هویج، انار)</p>
+                            <span class="price">40,000 تومان</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- درباره ما - نسخه جدید -->
     <section class="about" id="about">
-        <div class="about-bg"></div>
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
@@ -988,14 +926,15 @@
                         <li>سرویس سریع و باکیفیت</li>
                         <li>منوی متنوع برای تمام ذائقه‌ها</li>
                     </ul>
-                    
-                    <a href="#gallery" class="btn btn-primary">مشاهده محیط رستوران</a>
+                </div>
+                
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="فضای داخلی رستوران">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- گالری -->
     <section class="gallery" id="gallery">
         <div class="container">
             <div class="section-header">
@@ -1040,7 +979,7 @@
                 </div>
                 
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="نوشیدنی‌ها">
+                    <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="نوشیدنی">
                     <div class="overlay">
                         <span>نوشیدنی‌ها</span>
                     </div>
@@ -1049,13 +988,14 @@
         </div>
     </section>
 
-    <!-- تماس و نقشه -->
     <section class="contact" id="contact">
         <div class="container">
+            <div class="section-header">
+                <h2>تماس با ما</h2>
+                <p>با ما در ارتباط باشید</p>
+            </div>
             <div class="contact-content">
                 <div class="contact-info">
-                    <h2>تماس با ما</h2>
-                    
                     <div class="info-item">
                         <i class="fas fa-map-marker-alt"></i>
                         <p>تهران، خیابان ولیعصر، کوچه فلان، پلاک ۱۲۳</p>
@@ -1095,7 +1035,6 @@
         </div>
     </section>
 
-    <!-- فوتر -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -1133,28 +1072,14 @@
     </footer>
 
     <script>
-        // منوی موبایل مدرن
+        // منوی موبایل
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-        const mobileMenuClose = document.getElementById('mobileMenuClose');
+        const nav = document.getElementById('nav');
         
         mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
-            mobileMenuOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
-        
-        mobileMenuClose.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-            mobileMenuOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-        
-        mobileMenuOverlay.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-            mobileMenuOverlay.classList.remove('active');
-            document.body.style.overflow = '';
+            nav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = nav.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-ellipsis-v"></i>';
         });
         
         // اسکرول هدر
@@ -1170,17 +1095,15 @@
         // فیلتر منو
         const categoryButtons = document.querySelectorAll('.category-tabs button');
         const menuItems = document.querySelectorAll('.menu-item');
+        const searchInput = document.getElementById('menuSearch');
         
         categoryButtons.forEach(button => {
             button.addEventListener('click', () => {
-                // حذف کلاس active از همه دکمه‌ها
                 categoryButtons.forEach(btn => btn.classList.remove('active'));
-                // اضافه کردن کلاس active به دکمه کلیک شده
                 button.classList.add('active');
                 
                 const category = button.getAttribute('data-category');
                 
-                // فیلتر آیتم‌های منو
                 menuItems.forEach(item => {
                     if (category === 'all' || item.getAttribute('data-category') === category) {
                         item.style.display = 'block';
@@ -1188,11 +1111,32 @@
                         item.style.display = 'none';
                     }
                 });
+                
+                // بازنشانی جست‌وجو هنگام تغییر دسته‌بندی
+                searchInput.value = '';
             });
         });
         
-        // اسکرول نرم برای لینک‌های منوی موبایل
-        document.querySelectorAll('.mobile-menu-nav a').forEach(anchor => {
+        // جست‌وجوی منو
+        searchInput.addEventListener('input', () => {
+            const searchTerm = searchInput.value.trim().toLowerCase();
+            
+            // بازنشانی دسته‌بندی‌ها
+            categoryButtons.forEach(btn => btn.classList.remove('active'));
+            categoryButtons[0].classList.add('active');
+            
+            menuItems.forEach(item => {
+                const itemName = item.querySelector('h3').textContent.toLowerCase();
+                if (itemName.includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+        
+        // اسکرول نرم
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 
@@ -1200,21 +1144,10 @@
                     behavior: 'smooth'
                 });
                 
-                // بستن منوی موبایل
-                mobileMenu.classList.remove('active');
-                mobileMenuOverlay.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-        });
-        
-        // اسکرول نرم برای لینک‌های دیگر
-        document.querySelectorAll('a[href^="#"]:not(.mobile-menu-nav a)').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                if (nav.classList.contains('active')) {
+                    nav.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-ellipsis-v"></i>';
+                }
             });
         });
     </script>

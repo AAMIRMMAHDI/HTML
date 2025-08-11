@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پورتال سازمانی | شرکت نوآوران فناوری</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --navy: #001F3F;
+            --slate: #2F4F4F;
+            --ivory: #FFFFF0;
+            --transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Naskh Arabic', serif;
+            background-color: #f8f8f8;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 15, 40, 0.85);
+            z-index: -1;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .logo {
+            width: 120px;
+            height: 120px;
+            background: var(--navy);
+            border: 3px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+        }
+        
+        .logo i {
+            font-size: 3.5rem;
+            color: var(--gold);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--ivory);
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 240, 0.9);
+            max-width: 700px;
+            line-height: 1.8;
+        }
+        
+        .portals-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 2rem;
+        }
+        
+        .portal-card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+        
+        .portal-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(212, 175, 55, 0.5);
+        }
+        
+        .portal-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--gold), var(--navy));
+        }
+        
+        .portal-content {
+            padding: 2.5rem 2rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .portal-icon {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .portal-card:hover .portal-icon {
+            transform: scale(1.1);
+        }
+        
+        .portal-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--ivory);
+            margin-bottom: 1rem;
+        }
+        
+        .portal-desc {
+            font-size: 1rem;
+            color: rgba(255, 255, 240, 0.7);
+            margin-bottom: 2rem;
+        }
+        
+        .portal-btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            margin-top: auto;
+        }
+        
+        .portal-card:hover .portal-btn {
+            background: var(--gold);
+            color: var(--navy);
+        }
+        
+        .footer {
+            margin-top: 5rem;
+            text-align: center;
+            color: rgba(255, 255, 240, 0.6);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            padding-top: 2rem;
+            width: 100%;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .portals-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo-container">
+                <div class="logo">
+                    <i class="fas fa-crown"></i>
+                </div>
+            </div>
+            <h1>پورتال‌های سازمانی شرکت نوآوران فناوری</h1>
+            <p class="subtitle">به سیستم یکپارچه مدیریت سازمانی خوش آمدید. لطفاً برای دسترسی به بخش مورد نظر خود انتخاب نمایید</p>
+        </div>
+        
+        <div class="portals-container">
+            <div class="portal-card" onclick="window.open('0.html', '_blank')">
+                <div class="portal-content">
+                    <i class="fas fa-landmark portal-icon"></i>
+                    <h3 class="portal-title">پورتال سازمانی اصلی</h3>
+                    <p class="portal-desc">دسترسی کامل به سیستم‌های مدیریتی، مالی و اداری سازمان</p>
+                    <a class="portal-btn">ورود به پورتال</a>
+                </div>
+            </div>
+            
+            <div class="portal-card" onclick="window.open('2.html', '_blank')">
+                <div class="portal-content">
+                    <i class="fas fa-chart-pie portal-icon"></i>
+                    <h3 class="portal-title">پورتال تحلیلی و گزارش‌گیری</h3>
+                    <p class="portal-desc">سیستم هوشمند تحلیل داده‌ها و گزارش‌گیری مدیریتی</p>
+                    <a class="portal-btn">ورود به پورتال</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© ۱۴۰۲ کلیه حقوق مادی و معنوی این سامانه متعلق به شرکت نوآوران فناوری می‌باشد</p>
+        </div>
+    </div>
+</body>
+</html>

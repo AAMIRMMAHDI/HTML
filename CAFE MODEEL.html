@@ -114,6 +114,30 @@
             nav.active {
                 display: flex;
             }
+            .contact-container {
+                flex-direction: column;
+            }
+            .contact-info, .map-container {
+                width: 100%;
+            }
+        }
+        .contact-container {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            justify-content: center;
+        }
+        .contact-info {
+            flex: 1;
+            text-align: right;
+        }
+        .map-container {
+            flex: 1;
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 300px;
+            border-radius: 12px;
         }
     </style>
 </head>
@@ -189,7 +213,7 @@
             const [filter, setFilter] = useState('all');
             const menuItems = [
                 { name: "اسپرسو", desc: "قهوه غلیظ با عطر بی‌نظیر - ۵۰,۰۰۰ تومان", img: "https://images.unsplash.com/photo-1512568400610-62da28bc8a13?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60", category: "coffee", icon: "☕" },
-                { name: "لاته", desc: "ترکیبی نرم از قهوه و شیر - ۶۰,۰۰۰ تومان", img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60", category: "coffee", icon: "☕" },
+                { name: "لاته", desc: "ترکیبی نرم از قهوه و شیر - ۶۰,‌ع۰ تومان", img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60", category: "coffee", icon: "☕" },
                 { name: "کیک شکلاتی", desc: "کیک تازه با طعم شکلات خالص - ۴۵,۰۰۰ تومان", img: "https://images.unsplash.com/photo-1447933601403-0c6688de566e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60", category: "dessert", icon: "🍰" },
             ];
 
@@ -206,135 +230,139 @@
                     </div>
                     <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4">
                         {filteredItems.map((item, index) => (
-                            <div key={index} className="menu-card bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300" data-aos="zoom-in" data-aos-delay={index * 100}>
-                                <img src={item.img} alt={item.name} className="w-full h-48 object-cover rounded-lg mb-4" />
-                                <h3 className="text-2xl font-semibold mb-2 flex items-center gap-2">{item.icon} {item.name}</h3>
-                                <p className="text-gray-600">{item.desc}</p>
-                            </div>
-                        ))}
-                    </div>
-                </section>
-            );
-        };
+                            <div key={index} className="menu-card bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300" data-aos="zoom
 
-        const CoffeeStory = () => (
-            <section id="story" className="py-20 bg-[#FFF8E1] text-center parallax-bg">
-                <div className="max-w-4xl mx-auto bg-white bg-opacity-95 p-8 rounded-2xl shadow-lg" data-aos="fade-up">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-6">داستان قهوه ما</h2>
-                    <p className="text-lg text-gray-600 leading-relaxed">هر فنجان قهوه در کافه آرامش، روایتگر سفری است از مزارع سرسبز اتیوپی و کلمبیا. دانه‌های قهوه ما با دقت انتخاب و با عشق برشته می‌شوند تا طعمی بی‌نظیر را به شما هدیه کنند. ما معتقدیم قهوه فقط یک نوشیدنی نیست، بلکه لحظه‌ای از آرامش است.</p>
-                    <a href="#menu" className="mt-6 inline-block bg-[#A67C00] text-white py-3 px-8 rounded-full hover:bg-[#8B5E00] transition duration-300">مشاهده منو</a>
-                </div>
-            </section>
-        );
-
-        const Events = () => (
-            <section id="events" className="py-20 bg-white text-center">
-                <h2 className="text-4xl md:text-5xl font-bold mb-10" data-aos="fade-up">رویدادهای کافه</h2>
-                <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 px-4">
-                    {[
-                        { title: "شب شعر و قهوه", desc: "هر پنج‌شنبه، شاعران محلی و قهوه‌های ویژه", img: "https://images.unsplash.com/photo-1515169067868-5387ec356754?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" },
-                        { title: "موسیقی زنده", desc: "جمعه‌ها با اجرای گروه‌های موسیقی محلی", img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" },
-                    ].map((event, index) => (
-                        <div key={index} className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300" data-aos="zoom-in" data-aos-delay={index * 100}>
-                            <img src={event.img} alt={event.title} className="w-full h-48 object-cover rounded-lg mb-4" />
-                            <h3 className="text-2xl font-semibold mb-2">{event.title}</h3>
-                            <p className="text-gray-600">{event.desc}</p>
+-in" data-aos-delay={index * 100}>
+                            <img src={item.img} alt={item.name} className="w-full h-48 object-cover rounded-lg mb-4" />
+                            <h3 className="text-2xl font-semibold mb-2 flex items-center gap-2">{item.icon} {item.name}</h3>
+                            <p className="text-gray-600">{item.desc}</p>
                         </div>
                     ))}
                 </div>
             </section>
         );
+    };
 
-        const Gallery = () => {
-            const [lightbox, setLightbox] = useState(null);
+    const CoffeeStory = () => (
+        <section id="story" className="py-20 bg-[#FFF8E1] text-center parallax-bg">
+            <div className="max-w-6xl mx-auto bg-white bg-opacity-95 p-8 rounded-2xl shadow-lg" data-aos="fade-up">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">داستان قهوه ما</h2>
+                <p className="text-lg text-gray-600 leading-relaxed">هر فنجان قهوه در کافه آرامش، روایتگر سفری است از مزارع سرسبز اتیوپی و کلمبیا. دانه‌های قهوه ما با دقت انتخاب و با عشق برشته می‌شوند تا طعمی بی‌نظیر را به شما هدیه کنند. ما معتقدیم قهوه فقط یک نوشیدنی نیست، بلکه لحظه‌ای از آرامش است.</p>
+                <a href="#menu" className="mt-6 inline-block bg-[#A67C00] text-white py-3 px-8 rounded-full hover:bg-[#8B5E00] transition duration-300">مشاهده منو</a>
+            </div>
+        </section>
+    );
 
-            const images = [
-                "https://images.unsplash.com/photo-1512568400610-62da28bc8a13?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
-                "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
-                "https://images.unsplash.com/photo-1447933601403-0c6688de566e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
-                "https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
-            ];
-
-            return (
-                <section id="gallery" className="py-20 bg-[#FFF8E1] text-center">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-10" data-aos="fade-up">گالری تصاویر</h2>
-                    <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 px-4">
-                        {images.map((img, index) => (
-                            <img key={index} src={img} alt={`گالری ${index + 1}`} className="w-full h-48 object-cover rounded-lg cursor-pointer hover:scale-105 transition-transform duration-300" onClick={() => setLightbox(img)} data-aos="zoom-in" data-aos-delay={index * 100} />
-                        ))}
+    const Events = () => (
+        <section id="events" className="py-20 bg-white text-center">
+            <h2 className="text-4xl md:text-5xl font-bold mb-10" data-aos="fade-up">رویدادهای کافه</h2>
+            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 px-4">
+                {[
+                    { title: "شب شعر و قهوه", desc: "هر پنج‌شنبه، شاعران محلی و قهوه‌های ویژه", img: "https://images.unsplash.com/photo-1515169067868-5387ec356754?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" },
+                    { title: "موسیقی زنده", desc: "جمعه‌ها با اجرای گروه‌های موسیقی محلی", img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" },
+                ].map((event, index) => (
+                    <div key={index} className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300" data-aos="zoom-in" data-aos-delay={index * 100}>
+                        <img src={event.img} alt={event.title} className="w-full h-48 object-cover rounded-lg mb-4" />
+                        <h3 className="text-2xl font-semibold mb-2">{event.title}</h3>
+                        <p className="text-gray-600">{event.desc}</p>
                     </div>
-                    {lightbox && (
-                        <div className="gallery-lightbox" onClick={() => setLightbox(null)}>
-                            <img src={lightbox} alt="نمایش بزرگ" />
-                        </div>
-                    )}
-                </section>
-            );
-        };
+                ))}
+            </div>
+        </section>
+    );
 
-        const Contact = () => (
-            <section id="contact" className="py-20 bg-[#4B2E2A] text-white text-center parallax-bg">
-                <div className="max-w-4xl mx-auto bg-black bg-opacity-70 p-8 rounded-2xl" data-aos="fade-up">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-8">تماس با ما</h2>
-                    <div className="text-lg mb-8">
-                        <p className="mb-4">آدرس: تهران، خیابان ولیعصر، کوچه آرامش، پلاک ۱۲</p>
-                        <p className="mb-4">تلفن: <a href="tel:+989123456789" className="text-[#A67C00] hover:underline">۰۹۱۲-۳۴۵-۶۷۸۹</a></p>
-                        <p className="mb-4">ایمیل: <a href="mailto:info@arameshcafe.ir" className="text-[#A67C00] hover:underline">info@arameshcafe.ir</a></p>
+    const Gallery = () => {
+        const [lightbox, setLightbox] = useState(null);
+
+        const images = [
+            "https://images.unsplash.com/photo-1512568400610-62da28bc8a13?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
+            "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
+            "https://images.unsplash.com/photo-1447933601403-0c6688de566e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
+            "https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
+        ];
+
+        return (
+            <section id="gallery" className="py-20 bg-[#FFF8E1] text-center">
+                <h2 className="text-4xl md:text-5xl font-bold mb-10" data-aos="fade-up">گالری تصاویر</h2>
+                <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 px-4">
+                    {images.map((img, index) => (
+                        <img key={index} src={img} alt={`گالری ${index + 1}`} className="w-full h-48 object-cover rounded-lg cursor-pointer hover:scale-105 transition-transform duration-300" onClick={() => setLightbox(img)} data-aos="zoom-in" data-aos-delay={index * 100} />
+                    ))}
+                </div>
+                {lightbox && (
+                    <div className="gallery-lightbox" onClick={() => setLightbox(null)}>
+                        <img src={lightbox} alt="نمایش بزرگ" />
                     </div>
-                    <div className="map-container max-w-md mx-auto" data-aos="zoom-in">
+                )}
+            </section>
+        );
+    };
+
+    const Contact = () => (
+        <section id="contact" className="py-20 bg-[#4B2E2A] text-white text-center parallax-bg">
+            <div className="max-w-7xl mx-auto bg-black bg-opacity-70 p-8 rounded-2xl" data-aos="fade-up">
+                <h2 className="text-4xl md:text-5xl font-bold mb-8">تماس با ما</h2>
+                <div className="contact-container">
+                    <div className="map-container" data-aos="zoom-in">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509374!2d144.9537363153167!3d-37.81627977975159!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzfCsDQ5JzA1LjQiUyAxNDTCsDU3JzE0LjciRQ!5e0!3m2!1sen!2sus!4v1611234567890"
-                            width="100%"
-                            height="300"
                             style={{ border: 0 }}
                             allowFullScreen=""
                             loading="lazy"
                         ></iframe>
                     </div>
+                    <div className="contact-info" data-aos="zoom-in" data-aos-delay="100">
+                        <p className="mb-4 text-lg">آدرس: تهران، خیابان ولیعصر، کوچه آرامش، پلاک ۱۲</p>
+                        <p className="mb-4 text-lg">تلفن: <a href="tel:+989123456789" className="text-[#A67C00] hover:underline">۰۹۱۲-۳۴۵-۶۷۸۹</a></p>
+                        <p className="mb-4 text-lg">
+
+ایمیل: <a href="mailto:info@arameshcafe.ir" className="text-[#A67C00] hover:underline">info@arameshcafe.ir</a></p>
+                    </div>
                 </div>
-            </section>
+            </div>
+        </section>
+    );
+
+    const Footer = () => (
+        <footer className="bg-[#3A1F1A] text-white text-center py-6">
+            <div className="flex justify-center gap-4 mb-4">
+                <a href="https://instagram.com" target="_blank" className="text-[#A67C00] hover:text-[#8B5E00]"><svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252 148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.148 3.227-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.148-4.771-1.691-4.919-4.919-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.948-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                <a href="https://telegram.org" target="_blank" className="text-[#A67C00] hover:text-[#8B5E00]"><svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.082.164-.026.343.068l.058.056 3.429 3.429c.136.134.19.314.136.485l-.057.134-1.143 4.438c-.135.531-.568.687-.824.45l-.057-.057-2.514-2.514-1.143 1.143c-.082.082-.164.026-.343-.068l-.058-.056-3.429-3.429c-.136-.134-.19-.314-.136-.485l.057-.134 1.143-4.438c.135-.531.568-.687.824-.45l.057.057 2.514 2.514 1.143-1.143z"/></svg></a>
+            </div>
+            <p className="text-sm">تمامی حقوق برای کافه آرامش محفوظ است &copy; ۱۴۰۴</p>
+        </footer>
+    );
+
+    const App = () => {
+        useEffect(() => {
+            AOS.init({ duration: 1000, once: true });
+        }, []);
+
+        return (
+            <div>
+                <Header />
+                <HeroSlider />
+                <Menu />
+                <CoffeeStory />
+                <Events />
+                <Gallery />
+                <Contact />
+                <Footer />
+            </div>
         );
+    };
 
-        const Footer = () => (
-            <footer className="bg-[#3A1F1A] text-white text-center py-6">
-                <div className="flex justify-center gap-4 mb-4">
-                    <a href="https://instagram.com" target="_blank" className="text-[#A67C00] hover:text-[#8B5E00]"><svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.148 3.227-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.148-4.771-1.691-4.919-4.919-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.948-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-                    <a href="https://telegram.org" target="_blank" className="text-[#A67C00] hover:text-[#8B5E00]"><svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.082.164-.026.343.068l.058.056 3.429 3.429c.136.134.19.314.136.485l-.057.134-1.143 4.438c-.135.531-.568.687-.824.45l-.057-.057-2.514-2.514-1.143 1.143c-.082.082-.164.026-.343-.068l-.058-.056-3.429-3.429c-.136-.134-.19-.314-.136-.485l.057-.134 1.143-4.438c.135-.531.568-.687.824-.45l.057.057 2.514 2.514 1.143-1.143z"/></svg></a>
-                </div>
-                <p className="text-sm">تمامی حقوق برای کافه آرامش محفوظ است &copy; ۱۴۰۴</p>
-            </footer>
-        );
+    ReactDOM.render(<App />, document.getElementById('root'));
 
-        const App = () => {
-            useEffect(() => {
-                AOS.init({ duration: 1000, once: true });
-            }, []);
-
-            return (
-                <div>
-                    <Header />
-                    <HeroSlider />
-                    <Menu />
-                    <CoffeeStory />
-                    <Events />
-                    <Gallery />
-                    <Contact />
-                    <Footer />
-                </div>
-            );
-        };
-
-        ReactDOM.render(<App />, document.getElementById('root'));
-
-        // اسکریپت برای اسکرول نرم
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+    // اسکریپت برای اسکرول نرم
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
             });
         });
-    </script>
+    });
+</script>
 </body>
 </html>

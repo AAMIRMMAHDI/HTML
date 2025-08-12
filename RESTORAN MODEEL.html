@@ -1370,7 +1370,7 @@
                 <p>رستوران باغ مهر با سال‌ها تجربه در ارائه غذاهای باکیفیت و خوشمزه در محیطی دلنشین و مدرن</p>
                 <div class="hero-buttons">
                     <a href="#menu" class="btn btn-primary">مشاهده منو</a>
-                    <a href="#reservation-modal" class="btn btn-outline" id="reservationBtn">رزرو میز</a>
+                    <a href="#gallery" class="btn btn-outline" id="reservationBtn">گالری</a>
                 </div>
             </div>
         </div>
@@ -1747,61 +1747,6 @@
         </div>
     </footer>
 
-    <!-- Reservation Modal -->
-    <div class="modal-overlay" id="reservation-modal">
-        <div class="reservation-modal">
-            <button class="close-modal" id="closeModal">
-                <i class="fas fa-times"></i>
-            </button>
-            
-            <div class="modal-header">
-                <h3>رزرو میز در رستوران باغ مهر</h3>
-                <p>فرم زیر را پر کنید تا میز شما را رزرو کنیم</p>
-            </div>
-            
-            <form id="reservationForm">
-                <div class="form-group">
-                    <label for="reservation-name">نام و نام خانوادگی</label>
-                    <input type="text" id="reservation-name" name="name" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="reservation-phone">شماره تماس</label>
-                    <input type="tel" id="reservation-phone" name="phone" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="reservation-date">تاریخ رزرو</label>
-                    <input type="date" id="reservation-date" name="date" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="reservation-time">ساعت رزرو</label>
-                    <input type="time" id="reservation-time" name="time" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="reservation-guests">تعداد نفرات</label>
-                    <select id="reservation-guests" name="guests" required>
-                        <option value="1">1 نفر</option>
-                        <option value="2">2 نفر</option>
-                        <option value="3">3 نفر</option>
-                        <option value="4">4 نفر</option>
-                        <option value="5">5 نفر</option>
-                        <option value="6">6 نفر</option>
-                        <option value="7">7 نفر به بالا</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="reservation-notes">توضیحات اضافه (اختیاری)</label>
-                    <textarea id="reservation-notes" name="notes"></textarea>
-                </div>
-                
-                <button type="submit" class="btn btn-primary">تایید رزرو</button>
-            </form>
-        </div>
-    </div>
 
     <!-- Back to Top Button -->
     <div class="back-to-top" id="backToTop">
